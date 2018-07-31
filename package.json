@@ -1,0 +1,61 @@
+{
+  "name": "redux-seed",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "clean": "npx shx rm -rf build",
+    "prebuild": "npm run clean",
+    "lint": "eslint --ext .js,jsx src",
+    "build": "cross-env NODE_ENV=production react-app-rewired build",
+    "start": "cross-env NODE_ENV=development react-app-rewired start",
+    "test": "cross-env NODE_ENV=test react-app-rewired test"
+  },
+  "browserslist": {
+    "development": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 edge versions"
+    ],
+    "production": [
+      ">1%",
+      "last 4 versions",
+      "Firefox ESR",
+      "not ie < 11"
+    ]
+  },
+  "dependencies": {
+    "antd": "^3.7.0",
+    "autoprefixer": "^9.0.0",
+    "babel-plugin-import": "^1.8.0",
+    "babel-polyfill": "^6.26.0",
+    "browserslist": "^4.0.1",
+    "cross-env": "^5.2.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "history": "^4.7.2",
+    "immutable": "^3.8.2",
+    "less": "3.8.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-app-rewire-less": "^2.1.2",
+    "react-app-rewired": "^1.5.2",
+    "react-dom": "^16.4.1",
+    "react-loadable": "^5.4.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^5.0.0-alpha.9",
+    "react-scripts": "^1.1.4",
+    "redux": "^4.0.0",
+    "redux-immutable": "^4.0.0",
+    "redux-saga": "^0.16.0",
+    "redux-saga-routines": "^2.2.5",
+    "styled-components": "^3.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.10.0"
+  }
+}
