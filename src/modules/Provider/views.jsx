@@ -5,11 +5,12 @@ import * as Redux from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
 import createHistory from 'history/createBrowserHistory'
 import { configure } from './store'
+import sagas from './sagas'
 
 const history = createHistory()
-const props = {
-  store: configure(Map(), history),
-}
+const store = configure(Map(), history)
+
+store.runSaga(sagas)
 
 /**
  * Root provider for application, shipped with `store`
@@ -17,7 +18,7 @@ const props = {
  * @param {Object} props - Descendent React node(s).
  */
 const Provider = ({ children }) => (
-  <Redux.Provider {...props}>
+  <Redux.Provider store={store}>
     <ConnectedRouter history={history}>
       {children}
     </ConnectedRouter>

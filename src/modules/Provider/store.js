@@ -1,8 +1,11 @@
 import { Map } from 'immutable'
+import logger from 'redux-logger'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
-import createSagaMiddleware from 'redux-saga'
+import createSagaMiddleware, { END } from 'redux-saga'
 import createReducer from './reducers'
+
+// @TODO divide this to production & development.
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -31,12 +34,16 @@ export const configure = (history) => {
   const store = createStore(
     createReducer(),
     initialState,
-    composeEnhancers(...enhancers),
+    composeEnhancers(
+      applyMiddleware(logger),
+      ...enhancers,
+    ),
   )
 
   store.runSaga = sagaMiddleware.run
   store.injectedReducers = {}
   store.injectedSagas = {}
+  store.close = () => store.dispatch(END)
 
   if (module.hot) {
     module.hot.accept('./reducers', () => {

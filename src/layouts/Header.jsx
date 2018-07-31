@@ -15,21 +15,23 @@ const { Item } = Menu
 
 const Header = () => (
   <Layout.Header>
-    <Logo />
+    <Link to="/">
+      <Logo />
+    </Link>
     <Menu
       theme="dark"
       mode="horizontal"
       defaultSelectedKeys={['2']}
       style={{ lineHeight: '64px' }}
     >
-      <Item key="home">
-        <Link to="/">
-          Home
-        </Link>
-      </Item>
       <Item key="login">
         <Link to="/login">
           Login
+        </Link>
+      </Item>
+      <Item key="users">
+        <Link to="/users">
+          Users
         </Link>
       </Item>
     </Menu>

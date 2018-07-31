@@ -30,11 +30,11 @@ const FlexLayout = ({ children }) => (
       <Header />
       <Content>
         <Row type="flex" justify="space-around" align="middle">
-          <Col span={2} />
-          <Col span={8}>
+          <Col span={1} />
+          <Col span={10}>
             {children}
           </Col>
-          <Col span={2} />
+          <Col span={1} />
         </Row>
       </Content>
       <Footer />

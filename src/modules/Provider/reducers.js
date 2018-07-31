@@ -4,6 +4,7 @@ import { LOCATION_CHANGE } from 'react-router-redux'
 // ---------------------------------------------------------------------
 // Import all application reducers here & add before `...reducers`.
 // ---------------------------------------------------------------------
+import { userReducer } from '../User'
 
 /**
  * Merge route into the global application state
@@ -25,6 +26,7 @@ function routeReducer(state = fromJS({ location: null }), action) {
 export default function createReducer(reducers) {
   return combineReducers({
     route: routeReducer,
+    userReducer,
     ...reducers,
   })
 }
